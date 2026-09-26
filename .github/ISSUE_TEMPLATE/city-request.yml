@@ -12,13 +12,15 @@ body:
   - type: textarea
     id: stations
     attributes:
-      label: Stations
-      description: One per line - frequency, call sign or name, and the RDS PI code if you know it
+      label: Stations (optional)
+      description: >-
+        Requesting a new city or region? Leave this blank - we fill in a new region's stations in bulk.
+        To add or fix specific stations, list one per line: frequency, call sign or name, and the RDS PI code if you know it.
       placeholder: |
         92.1 CJAY 92 (PI C95C)
         104.9 Virgin Radio
     validations:
-      required: true
+      required: false
   - type: input
     id: unit
     attributes:
