@@ -36,32 +36,6 @@ Everything is in plain files under [`data/`](data), so anyone can send a pull re
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) to add or fix a station.
 
-## How releases are built
-
-Releases use [semantic versioning](https://semver.org), worked out automatically from pull request titles written as [Conventional Commits](https://www.conventionalcommits.org):
-
-| PR title starts with | Example | Next version |
-|---|---|---|
-| `feat:` | `feat: add Edmonton stations` | minor, 0.1.0 → 0.2.0 |
-| `fix:` | `fix: correct CJAY PI code` | patch, 0.1.0 → 0.1.1 |
-| `feat!:`, or `BREAKING CHANGE:` in the body | `feat!: new stations.csv format` | major, 0.1.0 → 1.0.0 |
-| `docs:` `chore:` `ci:` `refactor:` … | `docs: explain RSDB region` | no release |
-
-- **[Lint PR](.github/workflows/lintPR.yaml):** fails any pull request whose title isn't a Conventional Commit.
-- **[Build RadioStationDB](.github/workflows/build.yml):** validates the data on every pull request, builds the database and attaches a logo preview. Run it manually for a test zip of any branch.
-- **[Release](.github/workflows/release.yml):** runs on every push to `main`. It uses [semantic-release](https://github.com/semantic-release/semantic-release) ([`.releaserc.json`](.releaserc.json)) to work out the next version since the last `v*` tag. If there is one, it builds the database with that version and publishes a GitHub release with the zip.
-
-Merge pull requests with **Squash and merge**, so the PR title becomes the commit on `main` that decides the version.
-
-Build locally with Python 3.10+ and Pillow:
-
-```sh
-pip install pillow
-tools/package.sh dev    # validate, build and zip into dist/
-```
-
-The build starts from [`base/VW_STL_DB.base.sqlite`](base), so it needs no downloads. The finished database is about 400 KB.
-
 ## How it works
 
 The unit's radio station database is a SQLite file. The build starts from the empty base (the VW table layout, region list and menu translations, with every other country's stations and logos removed) and adds:
