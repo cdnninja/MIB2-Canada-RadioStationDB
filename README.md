@@ -6,6 +6,14 @@ This is an attempt at a custom Canadian logo database for Harman **MIB2 High / M
 
 > **Status: early testing.** The method is confirmed on a European-firmware MHI2Q in Australia ([ViktorFr/MIB2-Australia-RadioStationDB](https://github.com/ViktorFr/MIB2-Australia-RadioStationDB)). North American firmware (for example `MHI2Q_US_AUG22_P5087`) hasn't been tested yet, so please report what you see.
 
+## City support
+
+| City | Province | FM stations | PI codes verified in a car | Logos tested in a car |
+|---|---|---|---|---|
+| Calgary (incl. Airdrie, Okotoks, High River) | AB | 25 | 23 of 25 | Not yet |
+
+Don't see your city? [Request it](../../issues/new/choose), or add it yourself; see [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Download and install
 
 Get the latest `MIB2-Canada-RSDB-vX.Y.Z.zip` from **[Releases](../../releases)**. The zip contains:
