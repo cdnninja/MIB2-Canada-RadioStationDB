@@ -1,0 +1,31 @@
+id,include,region,market,frequency_mhz,callsign,name,pi,pi_status,logo,language,source,notes
+1,1,CA,Calgary,88.1,CJWE-FM,CJWE 88.1,CB9C,logged,CJWE_FM.png,en,WTFDA,HD
+2,1,CA,Calgary,88.9,CJSI-FM,Shine FM,CB34,logged,CJSI_FM.png,en,WTFDA,
+3,1,CA,Calgary,89.7,CBCX-FM,ICI Musique,B205,guess,Ici_Musique.png,fr,CBC network code,No PI logged yet
+4,1,CA,Calgary,90.3,CKMP-FM,90.3 AMP Radio,CD59,logged,CKMP_FM.png,en,WTFDA,
+5,1,CA,Calgary,90.9,CJSW-FM,CJSW 90.9,CB42,logged,CJSW_FM.png,en,WTFDA,Campus radio
+6,1,CA,Calgary,92.1,CJAY-FM,CJAY 92,C95C,logged,CJAY_FM.png,en,WTFDA,PS scrolls song/artist
+7,1,CA,Calgary,92.9,CFEX-FM,X92.9,C185,logged,CFEX_FM.png,en,WTFDA,PS scrolls
+8,1,CA,Calgary,93.7,CKUA-FM-1,CKUA,CE23,logged,CKUA_FM.png,en,WTFDA,Relay of CKUA-FM Edmonton; same PI network-wide
+9,1,CA,Calgary,94.7,CHKF-FM,Fairchild Radio,C4D0,logged,CHKF_FM.png,en,WTFDA,Multilingual
+10,1,CA,Calgary,95.3,CKWD-FM,Wild 95.3,CE5C,logged,CKWD_FM.png,en,WTFDA,
+11,1,CA,Calgary,95.9,CHFM-FM,Star 95.9,C456,logged,CHFM_FM.png,en,WTFDA,
+12,1,CA,Calgary,96.9,CJAQ-FM,Jack 96.9,C954,logged,CJAQ_FM.png,en,WTFDA,
+13,1,CA,Calgary,97.7,CHUP-FM,C97.7,C5EF,logged,CHUP_FM.png,en,WTFDA,
+14,1,CA,Calgary,98.5,CIBK-FM,Virgin Radio 98.5,C6A8,logged,CIBK_FM.png,en,WTFDA,
+15,1,CA,Calgary,99.1,CBR-1-FM,CBC Radio One,B202,logged,CBC_Radio_One.png,en,WTFDA,CBC network code
+16,1,CA,Calgary,99.7,CFXO-FM,Sun Country 99.7,C37F,logged,CFXO_FM.png,en,WTFDA,Licensed to Okotoks
+17,0,CA,Calgary,100.3,VF5001,,,,,en,WTFDA,Reported silent Apr 2026
+18,1,CA,Calgary,100.9,CKUV-FM,The Eagle 100.9,CE38,logged,CKUV_FM.png,en,WTFDA,Licensed to High River
+19,1,CA,Calgary,101.5,CKCE-FM,101.5 Today Radio,CC3F,logged,CKCE_FM.png,en,WTFDA,
+20,1,CA,Calgary,102.1,CBR-FM,CBC Music,B203,logged,CBC_Music.png,en,WTFDA,CBC network code
+21,0,CA,Calgary,102.7,VF5111,Punjabi Radio,,,,en,WTFDA,Low power; no PI logged; no logo
+22,1,CA,Calgary,103.1,CFXL-FM,XL103,C37C,logged,CFXL_FM.png,en,WTFDA,
+23,1,CA,Calgary,103.9,CBRF-FM,ICI Premiere,B204,logged,Ici_Premiere.png,fr,WTFDA,CBC network code
+24,1,CA,Calgary,105.1,CKRY-FM,Country 105,CDE9,logged,CKRY_FM.png,en,WTFDA,HD
+25,0,CA,Calgary,105.7,CIIS-FM,,FFFF,logged,,en,WTFDA,FFFF is an encoder default; station unidentified
+26,1,CA,Calgary,106.1,CFIT-FM,Air 106,C1ED,logged,CFIT_FM.png,en,WTFDA,Licensed to Airdrie
+27,0,CA,Calgary,106.5,CIRI-FM,,,,,en,WTFDA,Second CIRI listing; may not exist
+28,1,CA,Calgary,106.7,CKYR-FM,Red FM,CEA0,logged,CKYR_FM.png,en,WTFDA,
+29,1,CA,Calgary,107.3,CFGQ-FM,107.3 The Edge,C1B4,logged,CFGQ_FM.png,en,WTFDA,
+30,0,CA,Calgary,107.9,CIRI-FM,City of Calgary traffic radio,,,,en,WTFDA,No RDS

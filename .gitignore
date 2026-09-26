@@ -1,0 +1,5 @@
+.cache/
+dist/
+*.sqlite
+*.sqlite-journal
+__pycache__/

@@ -1,0 +1,36 @@
+MIB2 CANADA RADIOSTATIONDB - INSTALL
+====================================
+
+For Harman MIB2 High / MIB2.5 High units (MHI2 / MHI2Q) with M.I.B. (More Incredible Bash)
+installed in the green engineering menu (GEM). Use at your own risk.
+
+Keep the car on external power and never pull the SD card or power while files are written.
+
+1. BACK UP
+   In GEM > m.i.b., run a backup that includes RSDB (the radio station database).
+   Copy the backup folder off the SD card and keep it somewhere safe.
+
+2. COPY
+   Copy the "mod" folder from this zip to the ROOT of your M.I.B. SD card, so the file is at
+       /mod/RSDB/VW_STL_DB.sqlite
+   Do not rename the file. Put the card in slot SD1.
+
+3. INSTALL
+   GEM > m.i.b. > multimedia_system > radio > radiostation_db > "Copy RSDB to unit"
+   Wait until it says it is done, then reboot the unit.
+
+4. TURN THE FEATURE ON (North American units)
+   On the same M.I.B. screen set "RSDB region" = EU, press save, reboot.
+   (North American units ship with "none", which switches the logo database off.)
+
+5. PICK THE REGION
+   In the car's radio settings, look for the station logo region / country list and choose
+   "Canada". Turn on automatic station logos if your unit has that option.
+   Tune an FM station, give RDS a few seconds, re-save presets if old ones show no logo.
+
+UNDO
+   Put your backed-up VW_STL_DB.sqlite in /mod/RSDB/ and run "Copy RSDB to unit" again.
+
+Report what works (or doesn't) at:
+   https://github.com/cdnninja/MIB2-Canada-RadioStationDB/issues
+Include your car, unit (e.g. MHI2Q_US_AUG22_P5087), city and the stations you tried.

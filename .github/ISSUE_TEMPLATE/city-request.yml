@@ -1,0 +1,30 @@
+name: Add my city / station
+description: Ask for a city or station to be added, or report a missing or wrong logo
+labels: [station-request]
+body:
+  - type: input
+    id: city
+    attributes:
+      label: City / market
+      placeholder: Edmonton, AB
+    validations:
+      required: true
+  - type: textarea
+    id: stations
+    attributes:
+      label: Stations
+      description: One per line - frequency, call sign or name, and the RDS PI code if you know it
+      placeholder: |
+        92.1 CJAY 92 (PI C95C)
+        104.9 Virgin Radio
+    validations:
+      required: true
+  - type: input
+    id: unit
+    attributes:
+      label: Car and head unit (optional)
+      placeholder: 2019 Audi Q5 - MHI2Q_US_AUG22_P5087
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else
