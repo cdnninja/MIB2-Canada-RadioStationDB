@@ -1,0 +1,2 @@
+region,country_id,name,macro_region_id,ecc,pi_prefixes,native_language,request_strategy,use_database_name_in_hmi
+CA,124,Canada,69,A1,B C,en_CA,2,15

@@ -1,0 +1,102 @@
+name: Build RadioStationDB
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release tag to create, e.g. v0.2.0 (leave empty to build without releasing)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ github.ref_type == 'tag' && github.ref_name || inputs.version || format('dev-{0}', github.run_number) }}
+      RELEASE: ${{ github.ref_type == 'tag' || (github.event_name == 'workflow_dispatch' && inputs.version != '') }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check release version format
+        if: env.RELEASE == 'true'
+        run: |
+          if ! [[ "$VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Release version must look like v1.2.3 (got '$VERSION')"
+            exit 1
+          fi
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pillow
+
+      - name: Validate data tables
+        run: python tools/validate.py
+
+      - name: Cache base database
+        uses: actions/cache@v4
+        with:
+          path: .cache/base
+          key: base-${{ hashFiles('base.json') }}
+
+      - name: Build VW_STL_DB.sqlite
+        run: >
+          python tools/build_db.py
+          --out dist/package/mod/RSDB/VW_STL_DB.sqlite
+          --version "$VERSION"
+          --preview dist/logo-preview.png
+          --logo-dir dist/logos
+
+      - name: Package
+        run: |
+          cp release/INSTALL.txt dist/package/INSTALL.txt
+          cp dist/logo-preview.png dist/package/logo-preview.png
+          python tools/release_notes.py --version "$VERSION" --stations-csv dist/package/STATIONS.csv > dist/RELEASE_NOTES.md
+          (cd dist/package && sha256sum mod/RSDB/VW_STL_DB.sqlite > SHA256SUMS.txt)
+          (cd dist/package && zip -r -q "../MIB2-Canada-RSDB-${VERSION}.zip" .)
+          cat dist/RELEASE_NOTES.md >> "$GITHUB_STEP_SUMMARY"
+          ls -la dist
+
+      - name: Upload logo preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: logo-preview
+          path: dist/logo-preview.png
+          retention-days: 14
+
+      - name: Upload database build
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: MIB2-Canada-RSDB-${{ env.VERSION }}
+          path: dist/MIB2-Canada-RSDB-${{ env.VERSION }}.zip
+          retention-days: 7
+          compression-level: 0
+
+      - name: Publish GitHub release
+        if: env.RELEASE == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ZIP="dist/MIB2-Canada-RSDB-${VERSION}.zip"
+          if gh release view "$VERSION" > /dev/null 2>&1; then
+            gh release upload "$VERSION" "$ZIP" dist/logo-preview.png --clobber
+          else
+            gh release create "$VERSION" "$ZIP" dist/logo-preview.png \
+              --title "Canada RSDB $VERSION" \
+              --notes-file dist/RELEASE_NOTES.md \
+              --target "$GITHUB_SHA"
+          fi

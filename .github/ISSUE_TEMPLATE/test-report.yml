@@ -1,0 +1,31 @@
+name: Test report
+description: Tell us whether the database worked on your car
+labels: [test-report]
+body:
+  - type: input
+    id: unit
+    attributes:
+      label: Car and head unit / firmware
+      placeholder: 2019 Audi Q5 - MHI2Q_US_AUG22_P5087
+    validations:
+      required: true
+  - type: input
+    id: release
+    attributes:
+      label: Release tested
+      placeholder: v0.1.0
+    validations:
+      required: true
+  - type: input
+    id: city
+    attributes:
+      label: City
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: What happened
+      description: Which stations showed a logo, which didn't, any wrong logos. Settings you used (RSDB region, station logo region). Screenshots welcome.
+    validations:
+      required: true
