@@ -38,11 +38,15 @@ Every station is a row in [`data/stations.csv`](data/stations.csv), with a logo 
 
    ```sh
    pip install pillow
-   python tools/validate.py
-   python tools/build_db.py --out dist/mod/RSDB/VW_STL_DB.sqlite --preview dist/logo-preview.png
+   tools/package.sh dev
    ```
 
-5. **Open the pull request.** Say which city it covers and whether you've tested it in a car.
+5. **Open the pull request with a Conventional Commit title.** The title decides the next release version, and a check fails if it doesn't match:
+   - `feat: add Edmonton stations`: new stations or cities (minor release).
+   - `fix: correct CJAY PI code`: corrections to existing stations or logos (patch release).
+   - `docs: ...`, `chore: ...`, `ci: ...`: no release.
+
+   In the description, say which city it covers and whether you've tested it in a car.
 
 ## Test reports
 
