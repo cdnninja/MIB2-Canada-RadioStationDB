@@ -8,23 +8,22 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Release tag to create, e.g. v0.2.0 (leave empty to build without releasing)"
-        required: false
-        default: ""
+        description: "Release version to publish, e.g. v0.2.0"
+        required: true
 
 permissions:
   contents: write
 
 concurrency:
-  group: build-${{ github.ref }}
-  cancel-in-progress: true
+  group: build-${{ github.ref }}-${{ github.event_name }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
       VERSION: ${{ github.ref_type == 'tag' && github.ref_name || inputs.version || format('dev-{0}', github.run_number) }}
-      RELEASE: ${{ github.ref_type == 'tag' || (github.event_name == 'workflow_dispatch' && inputs.version != '') }}
+      RELEASE: ${{ github.ref_type == 'tag' || github.event_name == 'workflow_dispatch' }}
     steps:
       - uses: actions/checkout@v4
 

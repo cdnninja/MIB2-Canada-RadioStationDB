@@ -42,7 +42,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) to add or fix a station.
 
 - **Pull requests:** validate the data, build the database, and attach a logo preview to the run.
 - **Pushes to `main`:** the same, plus the built zip as a 7-day workflow artifact.
-- **Tag `vX.Y.Z`,** or **Actions → Build RadioStationDB → Run workflow** with a version: builds and publishes a GitHub release with the zip.
+- **Tag `vX.Y.Z`,** or **Actions → Build RadioStationDB → Run workflow** (enter a version such as `v0.1.0`): builds and publishes a GitHub release with the zip.
 
 Build locally with Python 3.10+ and Pillow:
 
