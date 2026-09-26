@@ -14,10 +14,12 @@ The region list stays because the car builds its station-logo region menu from i
 
 ## Where it came from
 
-It was cut from the database in the [Australian RSDB v1.0 release](https://github.com/ViktorFr/MIB2-Australia-RadioStationDB/releases/tag/v1.0.0) (VW RSDB 1.10.66 plus Australia) with:
+It was cut from the VW 1.10.66 database included in the [Australian RSDB v1.0 release](https://github.com/ViktorFr/MIB2-Australia-RadioStationDB) by ViktorFr. Thanks to that project for the database and for proving the method on MHI2Q units.
+
+To regenerate it, or move to a newer VW database, run:
 
 ```sh
 python3 tools/make_base.py <full VW_STL_DB.sqlite> base/VW_STL_DB.base.sqlite
 ```
 
-Checksums of the source and the result are in [`base.json`](base.json). To move to a newer VW database, run `make_base.py` on it, update `base.json`, and open a `feat:` pull request.
+Then update the checksum in [`base.json`](base.json) and open a `feat:` pull request.

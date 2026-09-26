@@ -2,12 +2,5 @@
   "name": "VW RSDB 1.10.66, stations removed",
   "file": "base/VW_STL_DB.base.sqlite",
   "sqlite_sha256": "51ff6d4b06f295a264cf66345f63da2e8b020ab662bdd21ec0f5cd4ce05763ee",
-  "made_with": "python3 tools/make_base.py <full.sqlite> base/VW_STL_DB.base.sqlite",
-  "derived_from": {
-    "name": "ViktorFr Australian RSDB v1.0 (VW RSDB 1.10.66 + Australia)",
-    "url": "https://github.com/ViktorFr/MIB2-Australia-RadioStationDB/releases/download/v1.0.0/VW_MIB2_Harman_Australia_RSDB_v1.0.0.zip",
-    "zip_sha256": "43b8276d0d69a4f155535b3902f0741b93c6a52af1c4f23e7b929e6e659480b8",
-    "member": "VW_MIB2_Harman_Australia_Melbourne_RSDB_v1.0/VW_MIB2_Harman_Australia_Melbourne_RSDB_v1.0/mod/RSDB/VW_STL_DB.sqlite",
-    "sqlite_sha256": "17db3838d19b978101bbd14ee65cb9aaaa576c5e06219b6ef59e9b0412478ad1"
-  }
+  "made_with": "python3 tools/make_base.py <full.sqlite> base/VW_STL_DB.base.sqlite"
 }
