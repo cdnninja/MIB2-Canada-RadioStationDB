@@ -1,0 +1,24 @@
+name: "Lint PR"
+
+# PR titles must follow Conventional Commits (feat: ..., fix: ..., docs: ...).
+# The squash-merged title decides the next release: feat -> minor, fix -> patch.
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - reopened
+
+permissions:
+  pull-requests: read
+
+jobs:
+  main:
+    name: Semantic PR title
+    runs-on: ubuntu-latest
+    steps:
+      # https://github.com/amannn/action-semantic-pull-request/releases
+      - uses: amannn/action-semantic-pull-request@v6.1.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

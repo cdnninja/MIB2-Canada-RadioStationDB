@@ -38,18 +38,26 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) to add or fix a station.
 
 ## How releases are built
 
-[`.github/workflows/build.yml`](.github/workflows/build.yml) runs [`tools/validate.py`](tools/validate.py) and [`tools/build_db.py`](tools/build_db.py):
+Releases use [semantic versioning](https://semver.org), worked out automatically from pull request titles written as [Conventional Commits](https://www.conventionalcommits.org):
 
-- **Pull requests:** validate the data, build the database, and attach a logo preview to the run.
-- **Pushes to `main`:** the same, plus the built zip as a 7-day workflow artifact.
-- **Tag `vX.Y.Z`,** or **Actions → Build RadioStationDB → Run workflow** with a version: builds and publishes a GitHub release with the zip.
+| PR title starts with | Example | Next version |
+|---|---|---|
+| `feat:` | `feat: add Edmonton stations` | minor, 0.1.0 → 0.2.0 |
+| `fix:` | `fix: correct CJAY PI code` | patch, 0.1.0 → 0.1.1 |
+| `feat!:`, or `BREAKING CHANGE:` in the body | `feat!: new stations.csv format` | major, 0.1.0 → 1.0.0 |
+| `docs:` `chore:` `ci:` `refactor:` … | `docs: explain RSDB region` | no release |
+
+- **[Lint PR](.github/workflows/lintPR.yaml):** fails any pull request whose title isn't a Conventional Commit.
+- **[Build RadioStationDB](.github/workflows/build.yml):** validates the data on every pull request, builds the database and attaches a logo preview. Run it manually for a test zip of any branch.
+- **[Release](.github/workflows/release.yml):** runs on every push to `main`. It uses [semantic-release](https://github.com/semantic-release/semantic-release) ([`.releaserc.json`](.releaserc.json)) to work out the next version since the last `v*` tag. If there is one, it builds the database with that version and publishes a GitHub release with the zip.
+
+Merge pull requests with **Squash and merge**, so the PR title becomes the commit on `main` that decides the version.
 
 Build locally with Python 3.10+ and Pillow:
 
 ```sh
 pip install pillow
-python tools/validate.py
-python tools/build_db.py --out dist/mod/RSDB/VW_STL_DB.sqlite --preview dist/logo-preview.png
+tools/package.sh dev    # validate, build and zip into dist/
 ```
 
 The base database (about 100 MB) is downloaded on the first run and cached in `.cache/`.

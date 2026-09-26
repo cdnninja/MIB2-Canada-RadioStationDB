@@ -1,0 +1,74 @@
+name: Release
+
+# On every push to main, semantic-release reads the Conventional Commit messages since the
+# last v* tag and works out the next version:
+#   feat: ...  -> minor (0.1.0 -> 0.2.0)     fix: ...  -> patch (0.1.0 -> 0.1.1)
+#   feat!: ... or "BREAKING CHANGE:" -> major.  docs/chore/ci/... -> no release.
+# If there is a new version, the database is built with it and published as a GitHub release.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0 # semantic-release needs full history to find prior tags
+
+      - name: Work out the next version
+        id: semver
+        uses: cycjimmy/semantic-release-action@v6
+        with:
+          dry_run: true # only compute the version; the steps below build and publish
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Nothing to release
+        if: steps.semver.outputs.new_release_published != 'true'
+        run: echo "No feat/fix commits since the last release - nothing to publish." >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/setup-python@v7
+        if: steps.semver.outputs.new_release_published == 'true'
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        if: steps.semver.outputs.new_release_published == 'true'
+        run: pip install pillow
+
+      - name: Cache base database
+        if: steps.semver.outputs.new_release_published == 'true'
+        uses: actions/cache@v4
+        with:
+          path: .cache/base
+          key: base-${{ hashFiles('base.json') }}
+
+      - name: Validate, build and package
+        if: steps.semver.outputs.new_release_published == 'true'
+        env:
+          TAG: ${{ steps.semver.outputs.new_release_git_tag }}
+        run: tools/package.sh "$TAG"
+
+      - name: Publish GitHub release
+        if: steps.semver.outputs.new_release_published == 'true'
+        env:
+          TAG: ${{ steps.semver.outputs.new_release_git_tag }}
+          NOTES: ${{ steps.semver.outputs.new_release_notes }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          { printf '%s\n\n---\n\n' "$NOTES"; cat dist/RELEASE_NOTES.md; } > dist/notes.md
+          gh release create "$TAG" "dist/MIB2-Canada-RSDB-${TAG}.zip" dist/logo-preview.png \
+            --title "Canada RSDB $TAG" \
+            --notes-file dist/notes.md \
+            --target "$GITHUB_SHA"
+          cat dist/notes.md >> "$GITHUB_STEP_SUMMARY"
