@@ -10,7 +10,7 @@ This is an attempt at a custom Canadian logo database for Harman **MIB2 High / M
 
 | City | Province | FM stations | PI codes verified in a car | Logos tested in a car |
 |---|---|---|---|---|
-| Calgary (incl. Airdrie, Okotoks, High River) | AB | 25 | 23 of 25 | Not yet |
+| Calgary | AB | 25 | 23 of 25 | Not yet |
 
 Don't see your city? [Request it](../../issues/new/choose), or add it yourself; see [CONTRIBUTING.md](CONTRIBUTING.md).
 
