@@ -27,12 +27,6 @@ jobs:
       - name: Install dependencies
         run: pip install pillow
 
-      - name: Cache base database
-        uses: actions/cache@v4
-        with:
-          path: .cache/base
-          key: base-${{ hashFiles('base.json') }}
-
       - name: Validate, build and package
         run: tools/package.sh "dev-${{ github.run_number }}"
 
