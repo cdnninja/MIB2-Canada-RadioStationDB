@@ -1,5 +1,6 @@
 .cache/
 dist/
 *.sqlite
+!base/*.sqlite
 *.sqlite-journal
 __pycache__/

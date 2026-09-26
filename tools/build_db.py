@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Build the Canadian VW_STL_DB.sqlite for Harman MIB2 High / MHI2Q units.
 
-Starts from a MIB2 (1.10.x) RadioStationDB (see base.json) and adds everything in data/:
+Starts from the slim MIB2 (1.10.x) base database in base/ (VW's region list, no stations) and adds
+everything in data/:
   regions.csv       -> CountryRegionData            (one row per region)
   region_names.csv  -> CountryRegionTranslationData (region name per GUI language)
   logos.csv + logos/ -> StationLogos                (rendered to 160x120 opaque PNG)
@@ -11,18 +12,15 @@ Usage:
   python3 tools/build_db.py --out dist/mod/RSDB/VW_STL_DB.sqlite [--base BASE.sqlite] [--version v0.2.0]
                             [--preview dist/logo-preview.png] [--logo-dir dist/logos]
 
-Without --base the base database is downloaded from base.json (and cached in .cache/base).
-Running it again on an output file is safe: all rows for the regions in regions.csv are replaced.
+--base defaults to base/VW_STL_DB.base.sqlite. Running it again on an output file is safe: all rows
+for the regions in regions.csv are replaced.
 """
 import argparse
 import hashlib
 import io
-import json
 import shutil
 import sqlite3
 import sys
-import urllib.request
-import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -32,7 +30,7 @@ from rsdb_data import LOGO_DIR, ROOT, load, station_ids
 
 LOGO_SIZE = (160, 120)   # every logo in the 1.10.x (MIB2) database is 160x120
 MARGIN = 8
-CACHE = ROOT / ".cache" / "base"
+BASE = ROOT / "base" / "VW_STL_DB.base.sqlite"
 
 
 def sha256(path: Path) -> str:
@@ -41,25 +39,6 @@ def sha256(path: Path) -> str:
         for chunk in iter(lambda: f.read(1 << 20), b""):
             h.update(chunk)
     return h.hexdigest()
-
-
-def fetch_base() -> Path:
-    cfg = json.loads((ROOT / "base.json").read_text())
-    db = CACHE / "VW_STL_DB.base.sqlite"
-    if db.is_file() and sha256(db) == cfg["sqlite_sha256"]:
-        return db
-    CACHE.mkdir(parents=True, exist_ok=True)
-    zpath = CACHE / "base.zip"
-    if not (zpath.is_file() and sha256(zpath) == cfg["zip_sha256"]):
-        print(f"downloading base database: {cfg['url']}")
-        urllib.request.urlretrieve(cfg["url"], zpath)
-        if sha256(zpath) != cfg["zip_sha256"]:
-            sys.exit("base zip checksum mismatch - check base.json")
-    with zipfile.ZipFile(zpath) as z, z.open(cfg["member"]) as src, open(db, "wb") as dst:
-        shutil.copyfileobj(src, dst)
-    if sha256(db) != cfg["sqlite_sha256"]:
-        sys.exit("base sqlite checksum mismatch - check base.json")
-    return db
 
 
 def render_logo(path: Path, bg_hex: str) -> Image.Image:
@@ -202,12 +181,12 @@ def build(base: Path, out: Path, version: str, preview: Path | None, logo_dir: P
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--out", required=True, type=Path)
-    ap.add_argument("--base", type=Path, help="base VW_STL_DB.sqlite (default: download from base.json)")
+    ap.add_argument("--base", type=Path, default=BASE, help="base VW_STL_DB.sqlite (default: %(default)s)")
     ap.add_argument("--version", default="dev")
     ap.add_argument("--preview", type=Path, help="write a PNG contact sheet of the logos")
     ap.add_argument("--logo-dir", type=Path, help="also write the rendered 160x120 logos here")
     a = ap.parse_args()
-    build(a.base or fetch_base(), a.out, a.version, a.preview, a.logo_dir)
+    build(a.base, a.out, a.version, a.preview, a.logo_dir)
 
 
 if __name__ == "__main__":

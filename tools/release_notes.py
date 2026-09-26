@@ -19,7 +19,7 @@ def main() -> None:
     d = load()
     stations = [s for s in d.stations if s["include"] == "1"]
     stations.sort(key=lambda s: (s["market"], s["frequency_khz"]))
-    base = json.loads((ROOT / "base.json").read_text())
+    base = json.loads((ROOT / "base" / "base.json").read_text())
     digest = hashlib.sha256(a.db.read_bytes()).hexdigest() if a.db.is_file() else "n/a"
 
     if a.stations_csv:

@@ -1,0 +1,6 @@
+{
+  "name": "VW RSDB 1.10.66, stations removed",
+  "file": "base/VW_STL_DB.base.sqlite",
+  "sqlite_sha256": "51ff6d4b06f295a264cf66345f63da2e8b020ab662bdd21ec0f5cd4ce05763ee",
+  "made_with": "python3 tools/make_base.py <full.sqlite> base/VW_STL_DB.base.sqlite"
+}

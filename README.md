@@ -32,7 +32,7 @@ Everything is in plain files under [`data/`](data), so anyone can send a pull re
 | [`data/logos.csv`](data/logos.csv) + [`data/logos/`](data/logos) | Logo images (any size; the build renders them to 160×120), with tile background and source. |
 | [`data/regions.csv`](data/regions.csv) | The "Canada" region added to the database (countryId 124, RDS ECC A1). |
 | [`data/region_names.csv`](data/region_names.csv) | The region's name in each of the unit's 38 menu languages. |
-| [`base.json`](base.json) | The MIB2 base database the Canadian data is added to, pinned by checksum. |
+| [`base/VW_STL_DB.base.sqlite`](base) | The empty MIB2 base database (VW's region list, no stations, 132 KB) the Canadian data is added to. |
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) to add or fix a station.
 
@@ -60,11 +60,11 @@ pip install pillow
 tools/package.sh dev    # validate, build and zip into dist/
 ```
 
-The base database (about 100 MB) is downloaded on the first run and cached in `.cache/`.
+The build starts from [`base/VW_STL_DB.base.sqlite`](base), so it needs no downloads. The finished database is about 400 KB.
 
 ## How it works
 
-The unit's radio station database is a SQLite file. The build keeps the whole base database and adds:
+The unit's radio station database is a SQLite file. The build starts from the empty base (the VW table layout, region list and menu translations, with every other country's stations and logos removed) and adds:
 
 - a "Canada" row to `CountryRegionData`,
 - its menu names to `CountryRegionTranslationData`,
@@ -77,7 +77,7 @@ The two station rows are identical except for the extended country code: one use
 
 ## Credits
 
-- [ViktorFr/MIB2-Australia-RadioStationDB](https://github.com/ViktorFr/MIB2-Australia-RadioStationDB): base database and the proven method.
+- [ViktorFr/MIB2-Australia-RadioStationDB](https://github.com/ViktorFr/MIB2-Australia-RadioStationDB): the proven method, and the 1.10.66 database the empty base was cut from.
 - [M.I.B. – More Incredible Bash](https://github.com/Mr-MIBonk/M.I.B._More-Incredible-Bash).
 - [WTFDA North American FM Station Database](https://db.wtfda.org): logged PI codes.
 - Station logos come from the stations' Wikipedia pages (sources in [`data/logos.csv`](data/logos.csv)). Names and logos belong to their owners and are used only to identify the stations.
