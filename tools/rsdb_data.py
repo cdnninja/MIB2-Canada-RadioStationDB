@@ -46,10 +46,13 @@ def _read(name, columns, errors):
         return rows
 
 
-def station_ids(country_id: int, station_id: int):
-    """Two Stations rows per station (ecc = region ECC and ecc = 0). Keeps ids stable across builds."""
-    base = country_id * 10_000  # Canada (124) -> 1_240_001 ... 1_249_998
-    return base + station_id * 2 - 1, base + station_id * 2
+def station_id(country_id: int, row_id: int) -> int:
+    """Stations.stationId for a stations.csv row. Keeps ids stable across builds.
+
+    Exactly one Stations row per station: the head unit looks FM stations up by PI (+ country), never by ECC,
+    so a second row with a different ecc is an exact duplicate match and the unit then shows no logo at all.
+    """
+    return country_id * 10_000 + row_id  # Canada (124) -> 1_240_001 ... 1_249_999
 
 
 def load() -> Data:
