@@ -23,11 +23,8 @@ Keep the car on external power and never pull the SD card or power while files a
    On the same M.I.B. screen set "RSDB region" = EU, press save, reboot.
    (North American units ship with "none", which switches the logo database off.)
 
-5. SWITCH STATION LOGOS ON (North American units)
-   Units coded for North America keep the station logo database switched OFF by default.
-   If your radio settings have a "station logos" (or station logo database) on/off option, turn it on.
-   If not, reset the radio settings: MMI > Setup > Reset factory settings > Radio.
-   This switches the logo database on, but it also deletes your radio presets, so write them down first.
+5. ENABLE THE HMI SERVICE (Potentially select regions only?) 
+   A custom hmi json file for my firmware had to be loaded, it was easy to create but I assume specific to each firmware verison. 
 
 6. TUNE A STATION
    Leave the station logo region on Automatic (or pick "Canada" if the list is shown).
