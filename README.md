@@ -28,7 +28,7 @@ In short:
 2. Copy `mod/RSDB/VW_STL_DB.sqlite` to the M.I.B. SD card.
 3. Run **Copy RSDB to unit** and reboot.
 4. Set **RSDB region = EU**. North American units ship with `none`, which switches the logo database off.
-5. Switch station logos on. Units coded for North America keep them off by default; if your radio settings have no on/off option for them, **MMI > Setup > Reset factory settings > Radio** switches them on (it also deletes your radio presets).
+5. A custom startup hmi file is required. I created one that works for my firmware and is easy to use. I am not comfortable sharing without others knowing the risk just yet. 
 
 ## What's in the data
 
