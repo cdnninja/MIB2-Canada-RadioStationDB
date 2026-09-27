@@ -4,7 +4,7 @@ A Canadian RadioStationDB for MIB2 devices.
 
 This is an attempt at a custom Canadian logo database for Harman **MIB2 High / MIB2.5 High (MHI2 / MHI2Q)** head units, so FM stations show their logo on the radio screen. It starts with just Calgary for testing purposes. Request your city by [opening an issue](../../issues/new/choose).
 
-> **Status: early testing.** The method is confirmed on a European-firmware MHI2Q in Australia ([ViktorFr/MIB2-Australia-RadioStationDB](https://github.com/ViktorFr/MIB2-Australia-RadioStationDB)). North American firmware (for example `MHI2Q_US_AUG22_P5087`) hasn't been tested yet, so please report what you see.
+> **Status: early testing.**  I have this functional on my head unit.  This was on a 2017 Audi A4 B9 with MHI2Q_US-AUG22_P5087 firmware. I do not know if any others will function. 
 
 ## City support
 
@@ -28,7 +28,7 @@ In short:
 2. Copy `mod/RSDB/VW_STL_DB.sqlite` to the M.I.B. SD card.
 3. Run **Copy RSDB to unit** and reboot.
 4. Set **RSDB region = EU**. North American units ship with `none`, which switches the logo database off.
-5. A custom startup hmi file is required. I created one that works for my firmware and is easy to use. I am not comfortable sharing without others knowing the risk just yet. 
+5. A custom startup hmi file is required. I created one that works for my firmware and is easy to use. I am not comfortable sharing without others knowing the risk just yet. I most likely will update this in the future.
 
 ## What's in the data
 
