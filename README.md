@@ -28,7 +28,7 @@ In short:
 2. Copy `mod/RSDB/VW_STL_DB.sqlite` to the M.I.B. SD card.
 3. Run **Copy RSDB to unit** and reboot.
 4. Set **RSDB region = EU**. North American units ship with `none`, which switches the logo database off.
-5. Choose **Canada** as the station-logo region in the car's radio settings.
+5. Switch station logos on. Units coded for North America keep them off by default; if your radio settings have no on/off option for them, **MMI > Setup > Reset factory settings > Radio** switches them on (it also deletes your radio presets).
 
 ## What's in the data
 
@@ -51,9 +51,9 @@ The unit's radio station database is a SQLite file. The build starts from the em
 - a "Canada" row to `CountryRegionData`,
 - its menu names to `CountryRegionTranslationData`,
 - one `StationLogos` row per logo (160×120 PNG),
-- two `Stations` rows per station, keyed by RDS PI code and frequency.
+- one `Stations` row per station, keyed by RDS PI code and frequency.
 
-The two station rows are identical except for the extended country code: one uses Canada's `A1` and the other uses `0` (unknown), because North American stations rarely broadcast that code. Both point to the same logo.
+The head unit looks an FM station up by its PI code (and the region's country id), and only shows a logo when that lookup finds exactly one station, or one whose name or frequency matches. So each station must appear once: a duplicate row means no logo at all.
 
 [docs/rsdb-structure.md](docs/rsdb-structure.md) has the full table-by-table notes.
 

@@ -6,7 +6,7 @@ everything in data/:
   regions.csv       -> CountryRegionData            (one row per region)
   region_names.csv  -> CountryRegionTranslationData (region name per GUI language)
   logos.csv + logos/ -> StationLogos                (rendered to 160x120 opaque PNG)
-  stations.csv      -> Stations                     (include=1 rows; two rows each: ecc=region ECC and ecc=0)
+  stations.csv      -> Stations                     (include=1 rows; one row each, ecc = region ECC)
 
 Usage:
   python3 tools/build_db.py --out dist/mod/RSDB/VW_STL_DB.sqlite [--base BASE.sqlite] [--version v0.2.0]
@@ -26,7 +26,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw
 
-from rsdb_data import LOGO_DIR, ROOT, load, station_ids
+from rsdb_data import LOGO_DIR, ROOT, load, station_id
 
 LOGO_SIZE = (160, 120)   # every logo in the 1.10.x (MIB2) database is 160x120
 MARGIN = 8
@@ -76,7 +76,7 @@ def build(base: Path, out: Path, version: str, preview: Path | None, logo_dir: P
     # remove anything from a previous build of these regions
     for r in data.regions:
         cid = int(r["country_id"])
-        lo, hi = station_ids(cid, 1)[0], station_ids(cid, 4999)[1]
+        lo, hi = station_id(cid, 1), station_id(cid, 9999)
         cur.execute("DELETE FROM Stations WHERE country=? OR stationId BETWEEN ? AND ?", (cid, lo, hi))
         cur.execute("DELETE FROM CountryRegionData WHERE countryId=?", (cid,))
         cur.execute("DELETE FROM CountryRegionTranslationData WHERE countryId=?", (cid,))
@@ -136,15 +136,22 @@ def build(base: Path, out: Path, version: str, preview: Path | None, logo_dir: P
     for s in stations:
         reg = region_by_key[s["region"]]
         cid = int(reg["country_id"])
-        for station_id, ecc in zip(station_ids(cid, int(s["id"])), (int(reg["ecc"], 16), 0)):
-            cur.execute(
-                """INSERT INTO Stations (stationId, country, ecc, piSid, linkedPi, ensembleId, scidi, subChannelId,
-                   frequency, longName, shortName, type, logoId, regionalScope, networkStatus, gpsPosition, power,
-                   height, radiationMode, descriptor, textToSpeech, asr, language)
-                   VALUES (?,?,?,?,-1,-1,-1,-1,?,?,?,'FM',?,NULL,NULL,NULL,NULL,NULL,NULL,?,?,'',?)""",
-                (station_id, cid, ecc, int(s["pi"], 16), s["frequency_khz"], s["name"], s["name"],
-                 tiles[s["logo"]][0], f"{s['region']} {s['market']} {s['callsign']}; PI {s['pi_status']} ({s['source']})",
-                 s["name"], s["language"]))
+        cur.execute(
+            """INSERT INTO Stations (stationId, country, ecc, piSid, linkedPi, ensembleId, scidi, subChannelId,
+               frequency, longName, shortName, type, logoId, regionalScope, networkStatus, gpsPosition, power,
+               height, radiationMode, descriptor, textToSpeech, asr, language)
+               VALUES (?,?,?,?,-1,-1,-1,-1,?,?,?,'FM',?,NULL,NULL,NULL,NULL,NULL,NULL,?,?,'',?)""",
+            (station_id(cid, int(s["id"])), cid, int(reg["ecc"], 16), int(s["pi"], 16), s["frequency_khz"],
+             s["name"], s["name"], tiles[s["logo"]][0],
+             f"{s['region']} {s['market']} {s['callsign']}; PI {s['pi_status']} ({s['source']})",
+             s["name"], s["language"]))
+
+    # The head unit only picks a station when its lookup returns exactly one row (or one row whose name or
+    # frequency matches), so two rows with the same PI, frequency and name must never exist.
+    dup = cur.execute("SELECT piSid, frequency, count(*) FROM Stations WHERE type='FM' GROUP BY country, piSid, "
+                      "frequency, shortName HAVING count(*) > 1").fetchall()
+    if dup:
+        sys.exit(f"duplicate FM station rows (same PI, frequency and name): {dup}")
 
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     cur.execute("UPDATE DatabaseVersion SET creationDate=?", (f"{stamp} CA {version}".strip(),))
@@ -175,7 +182,7 @@ def build(base: Path, out: Path, version: str, preview: Path | None, logo_dir: P
         sheet.save(preview)
 
     print(f"built {out} ({out.stat().st_size / 1e6:.1f} MB, sha256 {sha256(out)})")
-    print(f"  {len(data.regions)} region(s), {len(stations)} stations ({2 * len(stations)} rows), {len(tiles)} logos")
+    print(f"  {len(data.regions)} region(s), {len(stations)} stations, {len(tiles)} logos")
 
 
 def main() -> None:

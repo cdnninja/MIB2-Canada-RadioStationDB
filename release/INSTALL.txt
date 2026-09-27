@@ -23,10 +23,15 @@ Keep the car on external power and never pull the SD card or power while files a
    On the same M.I.B. screen set "RSDB region" = EU, press save, reboot.
    (North American units ship with "none", which switches the logo database off.)
 
-5. PICK THE REGION
-   In the car's radio settings, look for the station logo region / country list and choose
-   "Canada". Turn on automatic station logos if your unit has that option.
-   Tune an FM station, give RDS a few seconds, re-save presets if old ones show no logo.
+5. SWITCH STATION LOGOS ON (North American units)
+   Units coded for North America keep the station logo database switched OFF by default.
+   If your radio settings have a "station logos" (or station logo database) on/off option, turn it on.
+   If not, reset the radio settings: MMI > Setup > Reset factory settings > Radio.
+   This switches the logo database on, but it also deletes your radio presets, so write them down first.
+
+6. TUNE A STATION
+   Leave the station logo region on Automatic (or pick "Canada" if the list is shown).
+   Tune an FM station and give RDS a few seconds. Re-save presets if old ones show no logo.
 
 UNDO
    Put your backed-up VW_STL_DB.sqlite in /mod/RSDB/ and run "Copy RSDB to unit" again.
