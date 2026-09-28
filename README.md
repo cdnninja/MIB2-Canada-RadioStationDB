@@ -2,7 +2,7 @@
 
 A Canadian RadioStationDB for MIB2 devices.
 
-This is an attempt at a custom Canadian logo database for Harman **MIB2 High / MIB2.5 High (MHI2 / MHI2Q)** head units, so FM stations show their logo on the radio screen. It covers Calgary, Edmonton, the Greater Toronto Area and Greater Vancouver. Request your city by [opening an issue](../../issues/new/choose).
+This is an attempt at a custom Canadian logo database for Harman **MIB2 High / MIB2.5 High (MHI2 / MHI2Q)** head units, so FM stations show their logo on the radio screen. It covers Canada's 14 largest metro areas, about 60% of the population: Toronto (with Hamilton and Oshawa), Montréal, Vancouver, Ottawa–Gatineau, Calgary, Edmonton, Québec City, Winnipeg, Kitchener–Waterloo, London, Halifax and St. Catharines–Niagara. Request your city by [opening an issue](../../issues/new/choose).
 
 > **Status: early testing.**  I have this functional on my head unit.  This was on a 2017 Audi A4 B9 with MHI2Q_US_AUG22_P5087 firmware. I do not know if any others will function. 
 
@@ -21,8 +21,16 @@ This is an attempt at a custom Canadian logo database for Harman **MIB2 High / M
 |---|---|---|---|---|
 | Calgary | AB | 25 | 23 of 25 | Yes ([example above](#mib2-canada-radiostationdb)) |
 | Edmonton (incl. Leduc, Fort Saskatchewan) | AB | 23 | 20 of 23 | Not yet |
-| Greater Toronto Area (incl. Hamilton, Brampton, Oshawa, Newmarket) | ON | 31 (+ CBC Radio One 99.1 shared with Calgary) | 30 of 31 | Not yet |
+| Greater Toronto Area (incl. Hamilton, Brampton, Oshawa, Newmarket) | ON | 34 (+ CBC Radio One 99.1 shared with Calgary) | 30 of 34 | Not yet |
 | Greater Vancouver (incl. Surrey, New Westminster) | BC | 19 | 0 of 19 (WTFDA logs) | Not yet |
+| Montréal (incl. Laval, Longueuil, Kahnawake) | QC | 25 | 0 of 25 (WTFDA logs, 2 guessed) | Not yet |
+| Ottawa–Gatineau (incl. Smiths Falls, Kemptville) | ON/QC | 26 | 0 of 26 (WTFDA logs, 4 guessed) | Not yet |
+| Québec City (incl. Lévis) | QC | 17 | 0 of 17 (WTFDA logs, 5 guessed) | Not yet |
+| Winnipeg (incl. Selkirk, Steinbach) | MB | 21 | 0 of 21 (WTFDA logs, 1 guessed) | Not yet |
+| Kitchener–Cambridge–Waterloo (incl. Guelph) | ON | 13 | 0 of 13 (WTFDA logs, 2 guessed) | Not yet |
+| London (incl. St. Thomas, Woodstock) | ON | 15 | 0 of 15 (WTFDA logs, 2 guessed) | Not yet |
+| Halifax (incl. Dartmouth) | NS | 16 | 0 of 16 (WTFDA logs, 3 guessed) | Not yet |
+| St. Catharines–Niagara | ON | 8 | 0 of 8 (WTFDA logs, 1 guessed) | Not yet |
 
 Don't see your city? [Request it](../../issues/new/choose), or add it yourself; see [CONTRIBUTING.md](CONTRIBUTING.md).
 
