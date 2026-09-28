@@ -29,6 +29,8 @@ one service that nothing waits for.
 
 ## Files
 
+Every release zip includes these files in the folder `hmi_startup_fix_MU1316_only/`; you don't need to download them from here.
+
 | File | Goes on the M.I.B. SD card at |
 |---|---|
 | `sdcard/mod/RSDB/hmi_startup.json` | `/mod/RSDB/hmi_startup.json` |

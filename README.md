@@ -32,7 +32,9 @@ Get the latest `MIB2-Canada-RSDB-vX.Y.Z.zip` from **[Releases](../../releases)**
 
 - `mod/RSDB/VW_STL_DB.sqlite`, the database.
 - `INSTALL.txt`, step-by-step instructions using [M.I.B.](https://github.com/Mr-MIBonk/M.I.B._More-Incredible-Bash).
+- `hmi_startup_fix_MU1316_only/`, the [HMI startup fix](hmi_startup_fix) for `MHI2Q_US_AUG22_P5087` (MU1316) only: `sdcard/` (the startup file and the install/remove scripts), `Launcher-sda0.esd.snippet` (adds the two M.I.B. buttons) and its README. Kept apart from `mod/` so it is not copied to the card by accident.
 - `STATIONS.csv` and `logo-preview.png`, showing which stations and logos are in this release.
+- `SHA256SUMS.txt`, checksums of the database and the fix files.
 
 In short:
 
@@ -40,7 +42,7 @@ In short:
 2. Copy `mod/RSDB/VW_STL_DB.sqlite` to the M.I.B. SD card.
 3. Run **Copy RSDB to unit** and reboot.
 4. Set **RSDB region = EU**. North American units ship with `none`, which switches the logo database off.
-5. **Start the radio station database service: only on `MHI2Q_US_AUG22_P5087` (MU1316).** Install the [HMI startup fix](hmi_startup_fix) and reboot. Without this step a North American unit shows no logos. Do not use it on any other firmware (see the warning above).
+5. **Start the radio station database service: only on `MHI2Q_US_AUG22_P5087` (MU1316).** Install the HMI startup fix from the zip's `hmi_startup_fix_MU1316_only/` folder and reboot. Without this step a North American unit shows no logos. Do not use it on any other firmware (see the warning above).
 
 Steps 1 to 4 alone are not enough on North American firmware. `INSTALL.txt` step 5 has the full instructions and the risks.
 

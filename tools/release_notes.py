@@ -39,7 +39,7 @@ def main() -> None:
           "> **North American firmware needs an extra step, and it works on one firmware only.** "
           "These units never start the radio station database service, so no logos show with the database alone. "
           "The [HMI startup fix](https://github.com/cdnninja/MIB2-Canada-RadioStationDB/tree/main/hmi_startup_fix) "
-          "(`INSTALL.txt` step 5) starts it, but **only on `MHI2Q_US_AUG22_P5087` (MU1316)**. "
+          "(included in the zip as `hmi_startup_fix_MU1316_only/`, `INSTALL.txt` step 5) starts it, but **only on `MHI2Q_US_AUG22_P5087` (MU1316)**. "
           "Do not use it on any other firmware version.\n")
     print(f"`VW_STL_DB.sqlite` sha256: `{digest}`\n")
     print("| Market | MHz | Call sign | Name | PI |")
