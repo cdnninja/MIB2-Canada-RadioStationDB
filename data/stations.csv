@@ -29,3 +29,60 @@ id,include,region,market,frequency_mhz,callsign,name,pi,pi_status,logo,language,
 28,1,CA,Calgary,106.7,CKYR-FM,Red FM,CEA0,verified,CKYR_FM.png,en,car tuner list; WTFDA,
 29,1,CA,Calgary,107.3,CFGQ-FM,107.3 The Edge,C1B4,verified,CFGQ_FM.png,en,car tuner list; WTFDA,
 30,0,CA,Calgary,107.9,CIRI-FM,City of Calgary traffic radio,,,,en,WTFDA,No RDS
+31,1,CA,Toronto,88.1,CIND-FM,Indie88,C7E6,verified,CIND_FM.png,en,car tuner list; WTFDA,
+32,1,CA,Toronto,88.5,CKDX-FM,Hot Country 88.5,CC6D,verified,CKDX_FM.png,en,car tuner list,Licensed to Newmarket
+33,1,CA,Toronto,88.9,CIRV-FM,RED FM 88.9,C865,verified,CIRV_FM.png,en,car tuner list; WTFDA,Multilingual
+34,1,CA,Toronto,89.5,CIUT-FM,CIUT 89.5,C8B4,verified,CIUT_FM.png,en,car tuner list; WTFDA,Campus radio
+35,1,CA,Toronto,90.3,CJBC-FM,ICI Musique,B205,verified,Ici_Musique.png,fr,car tuner list; WTFDA,CBC network code
+36,1,CA,Toronto,91.1,CJRT-FM,JAZZ.FM91,CB24,verified,CJRT_FM.png,en,car tuner list; WTFDA,
+37,1,CA,Toronto,91.9,CHIN-1-FM,CHIN Radio,C4A8,verified,CHIN_FM.png,en,car tuner list; WTFDA,Multilingual
+38,1,CA,Toronto,92.5,CKIS-FM,KiSS 92.5,CCEF,verified,CKIS_FM.png,en,car tuner list; WTFDA,
+39,1,CA,Toronto,93.5,CFXJ-FM,New Country 93.5,C37A,verified,CFXJ_FM.png,en,car tuner list; WTFDA,
+40,1,CA,Toronto,94.1,CBL-FM,CBC Music,B203,verified,CBC_Music.png,en,car tuner list; WTFDA,CBC network code
+41,1,CA,Toronto,94.7,CHKX-FM,KX 94.7,C4E8,verified,CHKX_FM.png,en,car tuner list,Licensed to Hamilton
+42,1,CA,Toronto,94.9,CKGE-FM,94.9 The Rock,CCAB,verified,CKGE_FM.png,en,car tuner list,Licensed to Oshawa
+43,1,CA,Toronto,95.3,CING-FM,Energy 95.3,C7E9,verified,CING_FM.png,en,car tuner list,Licensed to Hamilton
+44,1,CA,Toronto,95.9,CJKX-FM-2,KX96,CA6A,verified,CJKX_FM.png,en,car tuner list; WTFDA,Toronto relay of CJKX-FM Ajax
+45,1,CA,Toronto,96.3,CFMZ-FM,Classical 96.3,C260,verified,CFMZ_FM.png,en,car tuner list; WTFDA,
+46,1,CA,Toronto,96.7,CFZM-1-FM,Zoomer Radio,C3B3,verified,CFZM.png,en,car tuner list; WTFDA,FM relay of CFZM 740 AM
+47,1,CA,Toronto,96.9,CKHC-FM,Radio Humber,CCC4,verified,CKHC_FM.png,en,car tuner list; WTFDA,Campus radio
+48,1,CA,Toronto,97.3,CHBM-FM,Boom 97.3,C3E9,verified,CHBM_FM.png,en,car tuner list; WTFDA,
+49,1,CA,Toronto,98.1,CHFI-FM,98.1 CHFI,C452,verified,CHFI_FM.png,en,car tuner list; WTFDA,
+50,1,CA,Toronto,98.7,CKFG-FM,Flow 98.7,CC92,verified,CKFG_FM.png,en,car tuner list; WTFDA,
+51,1,CA,Toronto,99.9,CKFM-FM,Virgin Radio 99.9,CC98,verified,CKFM_FM.png,en,car tuner list; WTFDA,
+52,1,CA,Toronto,100.7,CHIN-FM,CHIN Radio,C48E,verified,CHIN_FM.png,en,car tuner list; WTFDA,Multilingual
+53,1,CA,Toronto,101.3,CJSA-FM,CMR Diversity FM,C62C,logged,CJSA_FM.png,en,WTFDA,Multilingual
+54,1,CA,Toronto,102.1,CFNY-FM,102.1 The Edge,C27A,verified,CFNY_FM.png,en,car tuner list,Licensed to Brampton
+55,1,CA,Toronto,102.9,CKLH-FM,Legend 102.9,CD36,verified,CKLH_FM.png,en,car tuner list,Licensed to Hamilton; formerly K-Lite/Bounce
+56,1,CA,Toronto,103.5,CIDC-FM,Z103.5,C6D6,verified,CIDC_FM.png,en,car tuner list,Licensed to Orangeville
+57,1,CA,Toronto,104.5,CHUM-FM,CHUM 104.5,C5EC,verified,CHUM_FM.png,en,car tuner list; WTFDA,
+58,1,CA,Toronto,105.1,CHOQ-FM,CHOQ FM,C54E,verified,CHOQ_FM.png,fr,car tuner list; WTFDA,Franco-Ontarian community radio
+59,1,CA,Toronto,106.5,CFPT-FM,ELMNT FM,C2AB,verified,CFPT_FM.png,en,car tuner list; WTFDA,
+60,1,CA,Toronto,107.1,CILQ-FM,Q107,C7BD,verified,CILQ_FM.png,en,car tuner list; WTFDA,
+61,1,CA,Toronto,107.9,CJXY-FM,Y108,CBCB,verified,CJXY_FM.png,en,car tuner list,Licensed to Burlington
+62,1,CA,Vancouver,88.1,CBU-2-FM,CBC Radio One,B202,logged,CBC_Radio_One.png,en,WTFDA,CBC network code
+63,1,CA,Vancouver,89.1,CKYE-FM-1,Red FM,CE94,logged,CKYE_FM.png,en,WTFDA,Surrey relay of CKYE-FM 93.1
+64,1,CA,Vancouver,90.9,CBUX-FM,ICI Musique,B205,logged,Ici_Musique.png,fr,WTFDA,CBC network code
+65,1,CA,Vancouver,93.1,CKYE-FM,Red FM,CE93,logged,CKYE_FM.png,en,WTFDA,Multicultural
+66,1,CA,Vancouver,93.7,CJJR-FM,JR Country,CA49,logged,CJJR_FM.png,en,WTFDA,
+67,1,CA,Vancouver,94.5,CFBT-FM,94.5 Virgin Radio,C130,logged,CFBT_FM.png,en,WTFDA,
+68,1,CA,Vancouver,95.3,CKZZ-FM,Z95.3,CEC3,logged,CKZZ_FM.png,en,WTFDA,
+69,1,CA,Vancouver,96.1,CHKG-FM,Fairchild Radio,C4D7,logged,CHKG_FM.png,en,WTFDA,Multilingual
+70,1,CA,Vancouver,96.9,CJAX-FM,Jack 96.9,C95B,logged,CJAQ_FM.png,en,WTFDA,Same Jack 96.9 logo as Calgary
+71,1,CA,Vancouver,97.7,CBUF-FM,ICI Premiere,B204,logged,Ici_Premiere.png,fr,WTFDA,CBC network code
+72,1,CA,Vancouver,98.3,CIWV-FM,Wave 98.3,C8EC,logged,CIWV_FM.png,en,WTFDA,
+73,1,CA,Vancouver,99.3,CFOX-FM,CFOX,C294,logged,CFOX_FM.png,en,WTFDA,
+74,1,CA,Vancouver,101.1,CFMI-FM,Rock 101,C24F,logged,CFMI_FM.png,en,WTFDA,Licensed to New Westminster
+75,1,CA,Vancouver,102.7,CKPK-FM,102.7 The Peak,CDA5,logged,CKPK_FM.png,en,WTFDA,
+76,1,CA,Vancouver,103.5,CHQM-FM,Move 103.5,C580,logged,CHQM_FM.png,en,WTFDA,
+77,1,CA,Vancouver,104.3,CHLG-FM,104.3 The Breeze,C4F2,logged,CHLG_FM.png,en,WTFDA,
+78,1,CA,Vancouver,104.9,CKKS-FM-2,Kiss West Coast,CD26,logged,CKKS_FM.png,en,WTFDA,Vancouver relay of CKKS-FM 107.5 Chilliwack
+79,1,CA,Vancouver,105.7,CBU-FM,CBC Music,B203,logged,CBC_Music.png,en,WTFDA,CBC network code
+80,1,CA,Vancouver,107.7,CISF-FM,Pulse FM,C870,logged,CISF_FM.png,en,WTFDA,Licensed to Surrey
+81,0,CA,Toronto,99.1,CBLA-FM,CBC Radio One,B202,verified,,en,car tuner list; WTFDA,"Same PI and frequency as the Calgary CBC Radio One row (id 15), which covers Toronto too"
+82,0,CA,Vancouver,90.1,CJSF-FM,CJSF,,,,en,WTFDA,Campus radio (Burnaby); no PI logged
+83,0,CA,Vancouver,91.5,CKBU-FM,Connect FM,C987,logged,,en,WTFDA,Licensed to Surrey; no logo found
+84,0,CA,Vancouver,100.5,CFRO-FM,Co-op Radio,,,,en,WTFDA,No PI logged
+85,0,CA,Vancouver,101.9,CITR-FM,CITR,,,,en,WTFDA,Campus radio; no PI logged
+86,0,CA,Vancouver,106.3,CJNY-FM,CJNY,CABC,logged,,en,WTFDA,Station/logo not identified
+87,0,CA,Vancouver,107.9,CFML-FM,Evolution 107.9,,,,en,WTFDA,Campus radio (Burnaby); no PI logged
