@@ -1,0 +1,4 @@
+# The HMI startup file must stay byte-identical to the head unit's own file (CRLF line endings).
+hmi_startup_fix/sdcard/mod/RSDB/hmi_startup.json -text
+# Scripts run on the head unit's QNX shell: always LF.
+*.sh text eol=lf
