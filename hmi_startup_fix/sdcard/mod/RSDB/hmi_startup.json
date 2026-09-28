@@ -1,0 +1,1040 @@
+{
+  "build_configuration": "MIB2_Evo_HighQC_NAR_G22",
+  "template": "MIB2_Evo_High_NAR_G22",
+  "components": [
+    {
+      "name": "SystemSDIS",
+      "state_model_id": 3888,
+      "bundles": [
+        {
+          "name": "AppSystemSDIS"
+                                        },
+        {
+          "name": "ATIPAudioSDIS"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "id": 32,
+          "required_state": "0xC",
+          "start_asynchron": true
+                                        },
+        {
+          "id": 3,
+          "required_state": "0x0700",
+          "start_asynchron": true
+                                        },
+        {
+          "id": 35,
+          "required_state": "0xC",
+          "start_asynchron": true
+                                        }
+      ]
+            },
+    {
+      "name": "Media",
+      "state_model_id": 358,
+      "lastmode_audio": 2,
+      "guide_module": {
+        "id": 2,
+        "hmi_bundle": "HMIMedia",
+        "sm_bundle": "SMMedia"
+                        },
+      "domain": {
+        "id": 3,
+        "required_state": "0x3F77F700",
+        "minimum_state": "0x00607700"
+                        },
+      "audio_context": 1,
+      "bundles": [
+        {
+          "name": "AppMedia"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "comp_name": "MediaSDIS",
+          "start_anyway": true
+                                        },
+        {
+          "id": 33,
+          "required_state": "0x4",
+          "start_asynchron": true
+                                        }
+      ],
+      "components": [
+        {
+          "name": "MediaTransfer"
+                                        }
+      ],
+      "key_code": 2
+            },
+    {
+      "name": "Tuner",
+      "state_model_id": 378,
+      "lastmode_audio": 1,
+      "guide_module": {
+        "id": 1,
+        "hmi_bundle": "HMITuner",
+        "sm_bundle": "SMTuner"
+                        },
+      "audio_context": 0,
+      "bundles": [
+        {
+          "name": "AppTuner"
+                                        }
+      ],
+      "components": [
+        {
+          "name": "TunerSDIS"
+                                        }
+      ],
+      "key_code": 1
+            },
+    {
+      "name": "LastmodeOrder",
+      "components": [
+        {
+          "name": "Exlap"
+                                        },
+        {
+          "name": "RadioStationDB"
+                                        },
+        {
+          "name": "Ecall"
+                                        },
+        {
+          "name": "ENI"
+                                        },
+        {
+          "name": "Tone"
+                                        },
+        {
+          "name": "WirelessCharging"
+                                        },
+        {
+          "name": "Connectivity"
+                                        },
+        {
+          "name": "Phone"
+                                        },
+        {
+          "name": "Messaging"
+                                        },
+        {
+          "name": "Search"
+                                        },
+        {
+          "name": "WaitForFirstScreen"
+                                        },
+        {
+          "name": "Navi"
+                                        },
+        {
+          "name": "TTS"
+                                        },
+        {
+          "name": "SDSManager"
+                                        },
+        {
+          "name": "Car"
+                                        },
+        {
+          "name": "Info"
+                                        },
+        {
+          "name": "AddressBook"
+                                        },
+        {
+          "name": "Settings"
+                                        },
+        {
+          "name": "Tuner"
+                                        },
+        {
+          "name": "Media"
+                                        },
+        {
+          "name": "TV"
+                                        },
+        {
+          "name": "TerminalMode"
+                                        },
+        {
+          "name": "Browser"
+                                        },
+        {
+          "name": "Engineering"
+                                        },
+        {
+          "name": "SWDL"
+                                        },
+        {
+          "name": "TestSupport"
+                                        },
+        {
+          "name": "OnlineLauncher"
+                                        },
+        {
+          "name": "Online"
+                                        },
+        {
+          "name": "RemoteHMI"
+                                        }
+      ]
+            },
+    {
+      "name": "HMIBasics",
+      "bundles": [
+        {
+          "name": "SysConstConfig"
+                                        },
+        {
+          "name": "InitModelBanks"
+                                        },
+        {
+          "name": "ATIPAgentSupport"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "comp_name": "System",
+          "start_anyway": true
+                                        }
+      ]
+            },
+    {
+      "name": "Addon",
+      "bundles": [
+        {
+          "name": "PostStartup"
+                                        },
+        {
+          "name": "TcpLog"
+                                        },
+        {
+          "name": "TcpKeyPanel"
+                                        },
+        {
+          "name": "xEventRecorder"
+                                        }
+      ],
+      "components": [
+        {
+          "name": "GEM"
+                                        }
+      ]
+            },
+    {
+      "name": "Search",
+      "domain": {
+        "id": 29,
+        "required_state": "0xC"
+                        }
+            },
+    {
+      "name": "MobilityHorizon",
+      "domain": {
+        "id": 25,
+        "required_state": "0x4"
+                        }
+            },
+    {
+      "name": "Car",
+      "state_model_id": 352,
+      "lastmode": 7,
+      "guide_module": {
+        "id": 6,
+        "hmi_bundle": "HMICar",
+        "sm_bundle": "SMCar"
+                        },
+      "bundles": [
+        {
+          "name": "AppCarPCSimulation",
+          "pcsim_only": true
+                                        },
+        {
+          "name": "AppCar"
+                                        }
+      ],
+      "components": [
+        {
+          "name": "CarSDIS"
+                                        }
+      ],
+      "key_code": 7
+            },
+    {
+      "name": "RadioStationDB",
+      "dependencies": [
+        {
+          "id": 36,
+          "required_state": "0x04",
+          "start_asynchron": true
+                                        }
+      ]
+            },
+    {
+      "name": "Exlap",
+      "bundles": [
+        {
+          "name": "AppExlap"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "id": 32,
+          "required_state": "0x4",
+          "start_asynchron": true
+                                        }
+      ]
+            },
+    {
+      "name": "Tone",
+      "state_model_id": 377,
+      "lastmode": 9,
+      "guide_module": {
+        "id": 10,
+        "hmi_bundle": "HMITone",
+        "sm_bundle": "SMTone"
+                        },
+      "bundles": [
+        {
+          "name": "AppTone"
+                                        }
+      ],
+      "components": [
+        {
+          "name": "ToneSDIS"
+                                        }
+      ],
+      "key_code": 35
+            },
+    {
+      "name": "TV",
+      "state_model_id": 545,
+      "lastmode_audio": 38,
+      "guide_module": {
+        "id": 26,
+        "hmi_bundle": "HMITV",
+        "sm_bundle": "SMTV"
+                        },
+      "domain": {
+        "id": 33,
+        "required_state": "0x4"
+                        },
+      "audio_context": 2,
+      "bundles": [
+        {
+          "name": "AppTV"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "comp_name": "Media",
+          "stop_on_fail": true
+                                        }
+      ],
+      "components": [
+        {
+          "name": "TVSDIS"
+                                        }
+      ]
+            },
+    {
+      "name": "TerminalModeAudio",
+      "lastmode_audio": 48,
+      "audio_context": 3,
+      "dependencies": [
+        {
+          "comp_name": "TerminalMode"
+                                        }
+      ]
+            },
+    {
+      "name": "AddressBook",
+      "state_model_id": 350,
+      "guide_module": {
+        "id": 7,
+        "hmi_bundle": "HMIAddressBook",
+        "sm_bundle": "SMAddressBook"
+                        },
+      "domain": {
+        "id": 4,
+        "required_state": "0xC"
+                        },
+      "bundles": [
+        {
+          "name": "VCardExchange"
+                                        },
+        {
+          "name": "AppAddressBook"
+                                        }
+      ],
+      "components": [
+        {
+          "name": "Explorer"
+                                        }
+      ]
+            },
+    {
+      "name": "Connectivity",
+      "state_model_id": 509,
+      "guide_module": {
+        "id": 25,
+        "hmi_bundle": "HMIConnectivity",
+        "sm_bundle": "SMConnectivity"
+                        },
+      "domain": {
+        "id": 5,
+        "required_state": "0xE00"
+                        },
+      "bundles": [
+        {
+          "name": "AppConnectivity"
+                                        }
+      ]
+            },
+    {
+      "name": "Phone",
+      "state_model_id": 367,
+      "lastmode": 4,
+      "guide_module": {
+        "id": 3,
+        "hmi_bundle": "HMIPhone",
+        "sm_bundle": "SMPhone"
+                        },
+      "domain": {
+        "id": 5,
+        "required_state": "0xC00"
+                        },
+      "bundles": [
+        {
+          "name": "AppPhone"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "comp_name": "Connectivity",
+          "start_anyway": true
+                                        },
+        {
+          "id": 35,
+          "required_state": "0xC"
+                                        },
+        {
+          "id": 4,
+          "required_state": "0xC"
+                                        }
+      ],
+      "key_code": 4
+            },
+    {
+      "name": "Messaging",
+      "state_model_id": 359,
+      "lastmode": 21,
+      "guide_module": {
+        "id": 22,
+        "hmi_bundle": "HMIMessaging",
+        "sm_bundle": "SMMessaging"
+                        },
+      "domain": {
+        "id": 5,
+        "required_state": "0x100"
+                        },
+      "bundles": [
+        {
+          "name": "AppMessaging"
+                                        }
+      ]
+            },
+    {
+      "name": "Browser",
+      "domain": {
+        "id": 20,
+        "required_state": "0x0C"
+                        },
+      "bundles": [
+        {
+          "name": "ATIPBrowser"
+                                        }
+      ]
+            },
+    {
+      "name": "Info",
+      "state_model_id": 357,
+      "guide_module": {
+        "id": 5,
+        "hmi_bundle": "HMIInfo",
+        "sm_bundle": "SMInfo"
+                        },
+      "domain": {
+        "id": 6,
+        "required_state": "0xF00"
+                        },
+      "bundles": [
+        {
+          "name": "AppInfo"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "comp_name": "Navi",
+          "stop_on_fail": true
+                                        }
+      ]
+            },
+    {
+      "name": "Navi",
+      "state_model_id": 361,
+      "lastmode": 5,
+      "guide_module": {
+        "id": 4,
+        "hmi_bundle": "HMINavi",
+        "sm_bundle": "SMNavi"
+                        },
+      "domain": {
+        "id": 6,
+        "required_state": "0x700"
+                        },
+      "bundles": [
+        {
+          "name": "adaptermanager"
+                                        },
+        {
+          "name": "AppNavi"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "id": 10,
+          "required_state": "0x300",
+          "start_asynchron": true
+                                        }
+      ],
+      "components": [
+        {
+          "name": "NaviSDIS"
+                                        },
+        {
+          "name": "MobilityHorizon"
+                                        }
+      ],
+      "key_code": 5
+            },
+    {
+      "name": "TTS",
+      "domain": {
+        "id": 10,
+        "required_state": "0x300"
+                        },
+      "bundles": [
+        {
+          "name": "TTSService"
+                                        }
+      ]
+            },
+    {
+      "name": "SDSManager",
+      "state_model_id": 371,
+      "guide_module": {
+        "id": 31,
+        "hmi_bundle": "DummyMIBHigh",
+        "sm_bundle": "SMSDS"
+                        },
+      "domain": {
+        "id": 10,
+        "required_state": "0x700"
+                        },
+      "bundles": [
+        {
+          "name": "AppSDSManager"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "comp_name": "Settings"
+                                        },
+        {
+          "id": 35,
+          "required_state": "0xC"
+                                        }
+      ]
+            },
+    {
+      "name": "SWDL",
+      "state_model_id": 375,
+      "guide_module": {
+        "id": 17,
+        "hmi_bundle": "HMISWDL",
+        "sm_bundle": "SMSWDL"
+                        },
+      "bundles": [
+        {
+          "name": "AppSWDL"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "id": 25,
+          "required_state": "0x4"
+                                        },
+        {
+          "id": 29,
+          "required_state": "0xC"
+                                        },
+        {
+          "id": 20,
+          "required_state": "0xC"
+                                        }
+      ]
+            },
+    {
+      "name": "SWDLAddon",
+      "bundles": [
+        {
+          "name": "TcpLog"
+                                        },
+        {
+          "name": "TcpKeyPanel"
+                                        }
+      ],
+      "components": [
+        {
+          "name": "OnlineLauncher"
+                                        }
+      ]
+            },
+    {
+      "name": "OnlineLauncher",
+      "bundles": [
+        {
+          "name": "ArcLauncher"
+                                        }
+      ]
+            },
+    {
+      "name": "Online",
+      "state_model_id": 363,
+      "lastmode": 22,
+      "guide_module": {
+        "id": 23,
+        "hmi_bundle": "HMIOnline",
+        "sm_bundle": "SMOnline"
+                        },
+      "domain": {
+        "id": 5,
+        "required_state": "0x200"
+                        },
+      "bundles": [
+        {
+          "name": "AppOnline"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "id": 34,
+          "required_state": "0xC"
+                                        }
+      ]
+            },
+    {
+      "name": "RemoteHMI",
+      "bundles": [
+        {
+          "name": "RemoteHMI",
+          "pcsim_only": true
+                                        }
+      ]
+            },
+    {
+      "name": "StaticInit",
+      "bundles": [
+        {
+          "name": "COMMAgent"
+                                        },
+        {
+          "name": "JDSIAdmin"
+                                        },
+        {
+          "name": "DSISimulation",
+          "pcsim_only": true
+                                        },
+        {
+          "name": "ATIPDSIHigh"
+                                        },
+        {
+          "name": "InitDSI"
+                                        },
+        {
+          "name": "ATIPImplWin",
+          "pcsim_only": true
+                                        },
+        {
+          "name": "InitSystem"
+                                        },
+        {
+          "name": "ATIPHMIEvo"
+                                        },
+        {
+          "name": "ATIPKbdServices"
+                                        },
+        {
+          "name": "WidgetsEvoHigh"
+                                        },
+        {
+          "name": "InitHMI"
+                                        },
+        {
+          "name": "EAL"
+                                        }
+      ]
+            },
+    {
+      "name": "BeforeAudio",
+      "bundles": [
+        {
+          "name": "ATIPAudio"
+                                        }
+      ],
+      "components": [
+        {
+          "name": "EarlyFunc"
+                                        },
+        {
+          "name": "CombiBAP"
+                                        }
+      ]
+            },
+    {
+      "name": "BeforeApp",
+      "bundles": [
+        {
+          "name": "KombiMapControl"
+                                        },
+        {
+          "name": "ShowScreen"
+                                        }
+      ]
+            },
+    {
+      "name": "WaitForFirstScreen",
+      "bundles": [
+        {
+          "name": "WaitForFirstScreen"
+                                        }
+      ]
+            },
+    {
+      "name": "GEM",
+      "state_model_id": 4005,
+      "bundles": [
+        {
+          "name": "AppDevelopment"
+                                        }
+      ]
+            },
+    {
+      "name": "SWDLReboot",
+      "dependencies": [
+        {
+          "comp_name": "HMIBasics"
+                                        }
+      ],
+      "components": [
+        {
+          "name": "SWDL"
+                                        },
+        {
+          "name": "SWDLAddon"
+                                        }
+      ]
+            },
+    {
+      "name": "Explorer",
+      "state_model_id": 3853,
+      "domain": {
+        "id": 21,
+        "required_state": "0x04"
+                        },
+      "bundles": [
+        {
+          "name": "ATIPFileBrowser"
+                                        }
+      ]
+            },
+    {
+      "name": "CarSDIS",
+      "bundles": [
+        {
+          "name": "AppCarSDIS"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "comp_name": "SystemSDIS",
+          "stop_on_fail": true
+                                        }
+      ]
+            },
+    {
+      "name": "Settings",
+      "state_model_id": 372,
+      "lastmode": 10,
+      "guide_module": {
+        "id": 11,
+        "hmi_bundle": "HMISettings",
+        "sm_bundle": "SMSettings"
+                        },
+      "bundles": [
+        {
+          "name": "AppSettings"
+                                        }
+      ]
+            },
+    {
+      "name": "Ecall",
+      "state_model_id": 4079,
+      "lastmode": 44,
+      "guide_module": {
+        "id": 33,
+        "hmi_bundle": "HMIEcall",
+        "sm_bundle": "SMEcall"
+                        },
+      "bundles": [
+        {
+          "name": "AppBAPEcall"
+                                        },
+        {
+          "name": "AppEcall"
+                                        }
+      ]
+            },
+    {
+      "name": "WirelessCharging",
+      "state_model_id": 4190,
+      "guide_module": {
+        "id": 34,
+        "hmi_bundle": "HMIWirelessCharging",
+        "sm_bundle": "SMWirelessCharging"
+                        },
+      "bundles": [
+        {
+          "name": "AppWirelessCharging"
+                                        }
+      ]
+            },
+    {
+      "name": "NaviSDIS",
+      "bundles": [
+        {
+          "name": "AppNaviSDIS"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "comp_name": "SystemSDIS",
+          "stop_on_fail": true
+                                        }
+      ]
+            },
+    {
+      "name": "TunerSDIS",
+      "bundles": [
+        {
+          "name": "AppTunerSDIS"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "comp_name": "SystemSDIS",
+          "stop_on_fail": true
+                                        }
+      ]
+            },
+    {
+      "name": "TVSDIS",
+      "bundles": [
+        {
+          "name": "AppTVSDIS"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "comp_name": "SystemSDIS",
+          "stop_on_fail": true
+                                        }
+      ]
+            },
+    {
+      "name": "MediaTransferCore",
+      "bundles": [
+        {
+          "name": "AppMediaTransferCore"
+                                        }
+      ]
+            },
+    {
+      "name": "MediaTransfer",
+      "domain": {
+        "id": 3,
+        "required_state": "0x21613F00"
+                        },
+      "bundles": [
+        {
+          "name": "AppMediaTransfer"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "comp_name": "MediaTransferCore",
+          "stop_on_fail": true
+                                        }
+      ]
+            },
+    {
+      "name": "MediaSDIS",
+      "bundles": [
+        {
+          "name": "AppMediaSDIS"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "comp_name": "SystemSDIS",
+          "stop_on_fail": true
+                                        }
+      ]
+            },
+    {
+      "name": "System",
+      "state_model_id": 376,
+      "guide_module": {
+        "id": 0,
+        "hmi_bundle": "HMISystem",
+        "sm_bundle": "SMSystem"
+                        },
+      "bundles": [
+        {
+          "name": "AppSystem"
+                                        }
+      ]
+            },
+    {
+      "name": "Engineering",
+      "state_model_id": 355,
+      "guide_module": {
+        "id": 13,
+        "hmi_bundle": "HMIEngineering",
+        "sm_bundle": "SMEngineering"
+                        },
+      "bundles": [
+        {
+          "name": "AppEngineering"
+                                        }
+      ]
+            },
+    {
+      "name": "ToneSDIS",
+      "bundles": [
+        {
+          "name": "AppToneSDIS"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "comp_name": "SystemSDIS",
+          "stop_on_fail": true
+                                        }
+      ]
+            },
+    {
+      "name": "CombiBAP",
+      "state_model_id": 353,
+      "bundles": [
+        {
+          "name": "AppCombiBAP"
+                                        },
+        {
+          "name": "AppOnlineFunctionsBAP"
+                                        },
+        {
+          "name": "AppMediaCombiBAP"
+                                        }
+      ]
+            },
+    {
+      "name": "TestSupport",
+      "state_model_id": 456,
+      "guide_module": {
+        "id": 24,
+        "hmi_bundle": "HMITestSupport",
+        "sm_bundle": "SMTestSupport"
+                        },
+      "bundles": [
+        {
+          "name": "AppTestSupport"
+                                        }
+      ]
+            },
+    {
+      "name": "TerminalMode",
+      "state_model_id": 4033,
+      "lastmode": 43,
+      "guide_module": {
+        "id": 32,
+        "hmi_bundle": "HMITerminalMode",
+        "sm_bundle": "SMTerminalMode"
+                        },
+      "domain": {
+        "id": 37,
+        "required_state": "0x4"
+                        },
+      "bundles": [
+        {
+          "name": "AppTerminalMode"
+                                        }
+      ],
+      "dependencies": [
+        {
+          "id": 3,
+          "required_state": "0x0D00"
+                                        }
+      ]
+            },
+    {
+      "name": "EarlyFunc",
+      "state_model_id": 354,
+      "guide_module": {
+        "id": 21,
+        "hmi_bundle": "HMIEarlyApps",
+        "sm_bundle": "SMEarlyApps"
+                        },
+      "bundles": [
+        {
+          "name": "AppEarlyFunc"
+                                        }
+      ]
+            },
+    {
+      "name": "MainWizard",
+      "lastmode_transient": 41,
+      "key_code": 30
+            },
+    {
+      "name": "ENI",
+      "state_model_id": 4253,
+      "bundles": [
+        {
+          "name": "AppENI"
+                                        },
+        {
+          "name": "AppBAPENI"
+                                        },
+        {
+          "name": "AppBAPRemoteServices"
+                                        }
+      ]
+            }
+  ]
+}
