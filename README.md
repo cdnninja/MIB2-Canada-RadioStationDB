@@ -4,11 +4,16 @@ A Canadian RadioStationDB for MIB2 devices.
 
 This is an attempt at a custom Canadian logo database for Harman **MIB2 High / MIB2.5 High (MHI2 / MHI2Q)** head units, so FM stations show their logo on the radio screen. It covers Calgary, Edmonton, the Greater Toronto Area and Greater Vancouver. Request your city by [opening an issue](../../issues/new/choose).
 
-> **Status: early testing.**  I have this functional on my head unit.  This was on a 2017 Audi A4 B9 with MHI2Q_US-AUG22_P5087 firmware. I do not know if any others will function. 
+> **Status: early testing.**  I have this functional on my head unit.  This was on a 2017 Audi A4 B9 with MHI2Q_US_AUG22_P5087 firmware. I do not know if any others will function. 
 
 ![CJAY 92 logo from this database on the FM station list of a 2017 Audi A4 (MHI2Q, US firmware) in Calgary](docs/images/calgary-cjay92-logo.jpg)
 
 *CJAY 92 in Calgary showing its logo from this database on the FM station list of a 2017 Audi A4 B9 (MHI2Q_US_AUG22_P5087).*
+
+> [!IMPORTANT]
+> **On North American firmware, installing the database is not enough.** These units never start the radio station database service (`radiodata`), so no logos show, whatever database you install. Logos only appeared after also installing the [HMI startup fix](hmi_startup_fix), which makes the unit start that service.
+>
+> **The HMI startup fix works on one firmware only: `MHI2Q_US_AUG22_P5087` (MU1316).** It replaces a startup file that is different on every firmware version, so **do not use it on any other version**. Check `Train` and `MU` in the `<MU>-allversions.txt` file of your M.I.B. backup first. There is no fix for other firmware yet, so on those units the database will most likely install but show no logos.
 
 ## City support
 
@@ -27,7 +32,9 @@ Get the latest `MIB2-Canada-RSDB-vX.Y.Z.zip` from **[Releases](../../releases)**
 
 - `mod/RSDB/VW_STL_DB.sqlite`, the database.
 - `INSTALL.txt`, step-by-step instructions using [M.I.B.](https://github.com/Mr-MIBonk/M.I.B._More-Incredible-Bash).
+- `hmi_startup_fix_MU1316_only/`, the [HMI startup fix](hmi_startup_fix) for `MHI2Q_US_AUG22_P5087` (MU1316) only: `sdcard/` (the startup file and the install/remove scripts), `Launcher-sda0.esd.snippet` (adds the two M.I.B. buttons) and its README. Kept apart from `mod/` so it is not copied to the card by accident.
 - `STATIONS.csv` and `logo-preview.png`, showing which stations and logos are in this release.
+- `SHA256SUMS.txt`, checksums of the database and the fix files.
 
 In short:
 
@@ -35,6 +42,9 @@ In short:
 2. Copy `mod/RSDB/VW_STL_DB.sqlite` to the M.I.B. SD card.
 3. Run **Copy RSDB to unit** and reboot.
 4. Set **RSDB region = EU**. North American units ship with `none`, which switches the logo database off.
+5. **Start the radio station database service: only on `MHI2Q_US_AUG22_P5087` (MU1316).** Install the HMI startup fix from the zip's `hmi_startup_fix_MU1316_only/` folder and reboot. Without this step a North American unit shows no logos. Do not use it on any other firmware (see the warning above).
+
+Steps 1 to 4 alone are not enough on North American firmware. `INSTALL.txt` step 5 has the full instructions and the risks.
 
 ## What's in the data
 

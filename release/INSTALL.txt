@@ -6,6 +6,11 @@ installed in the green engineering menu (GEM). Use at your own risk.
 
 Keep the car on external power and never pull the SD card or power while files are written.
 
+IMPORTANT - NORTH AMERICAN FIRMWARE
+   Steps 1 to 4 alone do NOT make logos show on North American firmware: the unit never starts
+   its radio station database service. Step 5 starts it, but ONLY on firmware
+   MHI2Q_US_AUG22_P5087 (MU1316). There is no fix for other versions yet.
+
 1. BACK UP
    In GEM > m.i.b., run a backup that includes RSDB (the radio station database).
    Copy the backup folder off the SD card and keep it somewhere safe.
@@ -35,15 +40,17 @@ Keep the car on external power and never pull the SD card or power while files a
    RISK: this puts a file on the unit's app partition that changes what the HMI starts at boot.
    It has been used on one car. Keep the car on external power.
 
-   a. Download the hmi_startup_fix folder from this project:
-          https://github.com/cdnninja/MIB2-Canada-RadioStationDB/tree/main/hmi_startup_fix
-      Copy the contents of its "sdcard" folder to the ROOT of the M.I.B. SD card:
+   The files for this step are in this zip, in the folder "hmi_startup_fix_MU1316_only"
+   (its README.md explains what the fix changes). They are kept apart from "mod" on purpose.
+
+   a. Copy the contents of hmi_startup_fix_MU1316_only/sdcard to the ROOT of the M.I.B. SD card:
           /mod/RSDB/hmi_startup.json
           /esd/scripts/rsdb_hmi_install.sh
           /esd/scripts/rsdb_hmi_remove.sh
    b. Add the two buttons: open /esd/Launcher-sda0.esd on the SD card in a text editor, find
           label   "Copy RSDB to unit"
-      and paste the contents of Launcher-sda0.esd.snippet on the next line.
+      and paste the contents of hmi_startup_fix_MU1316_only/Launcher-sda0.esd.snippet on the
+      next line. Save the file.
    c. GEM > m.i.b. > multimedia_system > radio > radiostation_db >
           "Canada RSDB: place HMI startup file (MU1316 only)"
       It should say "Unit: MU1316" and "HMI startup file placed".
