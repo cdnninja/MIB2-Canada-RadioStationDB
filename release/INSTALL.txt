@@ -6,6 +6,11 @@ installed in the green engineering menu (GEM). Use at your own risk.
 
 Keep the car on external power and never pull the SD card or power while files are written.
 
+IMPORTANT - NORTH AMERICAN FIRMWARE
+   Steps 1 to 4 alone do NOT make logos show on North American firmware: the unit never starts
+   its radio station database service. Step 5 starts it, but ONLY on firmware
+   MHI2Q_US_AUG22_P5087 (MU1316). There is no fix for other versions yet.
+
 1. BACK UP
    In GEM > m.i.b., run a backup that includes RSDB (the radio station database).
    Copy the backup folder off the SD card and keep it somewhere safe.
