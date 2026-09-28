@@ -86,3 +86,28 @@ id,include,region,market,frequency_mhz,callsign,name,pi,pi_status,logo,language,
 85,0,CA,Vancouver,101.9,CITR-FM,CITR,,,,en,WTFDA,Campus radio; no PI logged
 86,0,CA,Vancouver,106.3,CJNY-FM,CJNY,CABC,logged,,en,WTFDA,Station/logo not identified
 87,0,CA,Vancouver,107.9,CFML-FM,Evolution 107.9,,,,en,WTFDA,Campus radio (Burnaby); no PI logged
+88,1,CA,Edmonton,88.5,CJSR-FM,CJSR FM88,CB3D,logged,CJSR_FM.png,en,WTFDA,Campus radio
+89,1,CA,Edmonton,90.1,CHFA-10-FM,ICI Premiere,B204,verified,Ici_Premiere.png,fr,car tuner list; WTFDA,CBC network code
+90,1,CA,Edmonton,90.9,CBX-FM,CBC Music,B203,verified,CBC_Music.png,en,car tuner list; WTFDA,CBC network code
+91,1,CA,Edmonton,91.7,CHBN-FM,Kiss 91.7,C3EA,verified,CHBN_FM.png,en,car tuner list,Not in WTFDA; car PI matches the call-sign pattern
+92,1,CA,Edmonton,92.5,CKNG-FM,Chuck @ 92.5,CD6B,verified,CKNG_FM.png,en,car tuner list; WTFDA,
+93,1,CA,Edmonton,93.1,CJLD-FM,93.1 The One,CA71,verified,CJLD_FM.png,en,car tuner list,Licensed to Leduc; car PI matches the call-sign pattern
+94,1,CA,Edmonton,93.9,CBX-2-FM,CBC Radio One,B202,verified,CBC_Radio_One.png,en,car tuner list; WTFDA,CBC network code
+95,1,CA,Edmonton,94.9,CKUA-FM,CKUA,CE23,verified,CKUA_FM.png,en,car tuner list; WTFDA,Same PI network-wide
+96,1,CA,Edmonton,95.7,CKEA-FM,95.7 Cruz FM,CC71,verified,CKEA_FM.png,en,car tuner list; WTFDA,
+97,1,CA,Edmonton,96.3,CKRA-FM,96.3 The Breeze,CDD1,verified,CKRA_FM.png,en,car tuner list; WTFDA,
+98,1,CA,Edmonton,97.3,CIRK-FM,K-97,C85A,verified,CIRK_FM.png,en,car tuner list; WTFDA,
+99,1,CA,Edmonton,98.5,CFWE-FM,CFWE,C35A,verified,CFWE_FM.png,en,car tuner list,First Nations community radio; same PI on 88.7
+100,1,CA,Edmonton,99.3,CIUP-FM,Up! 99.3,C8B0,verified,CIUP_FM.png,en,car tuner list; WTFDA,
+101,1,CA,Edmonton,100.3,CFBR-FM,100.3 The Bear,C12E,verified,CFBR_FM.png,en,car tuner list; WTFDA,
+102,1,CA,Edmonton,101.1,CBCX-FM-1,ICI Musique,B205,verified,Ici_Musique.png,fr,car tuner list; WTFDA,CBC network code
+103,1,CA,Edmonton,101.7,CKER-FM,Connect 101.7,CC82,logged,CKER_FM.png,en,WTFDA,Multilingual; the car logged CD7C on 101.7 (unidentified)
+104,1,CA,Edmonton,102.3,CKNO-FM,102.3 Now! Radio,CD73,verified,CKNO_FM.png,en,car tuner list; WTFDA,
+105,1,CA,Edmonton,102.9,CHDI-FM,SONiC 102.9,C41C,verified,CHDI_FM.png,en,car tuner list; WTFDA,
+106,1,CA,Edmonton,103.9,CISN-FM,CISN Country 103.9,C878,verified,CISN_FM.png,en,car tuner list; WTFDA,
+107,1,CA,Edmonton,104.9,CFMG-FM,104.9 Virgin Radio,C24D,verified,CFMG_FM.png,en,car tuner list; WTFDA,
+108,1,CA,Edmonton,105.9,CJRY-FM,Shine 105.9 FM,CB29,verified,CJRY_FM.png,en,car tuner list; WTFDA,
+109,1,CA,Edmonton,107.1,CKPW-FM,Play 107.1,CDB1,verified,CKPW_FM.png,en,car tuner list; WTFDA,
+110,1,CA,Edmonton,107.9,CKFT-FM,Mix 107.9,CC9F,guess,CKFT_FM.png,en,call-sign pattern,Licensed to Fort Saskatchewan; PI not logged anywhere - replace when seen
+111,0,CA,Edmonton,89.3,CIWE-FM,The Raven,C8DB,verified,,en,car tuner list; WTFDA,First Nations community radio; no logo found
+112,0,CA,Edmonton,97.9,CFED-FM,Radio Cite,C171,logged,,en,WTFDA,Francophone community radio; no logo found
