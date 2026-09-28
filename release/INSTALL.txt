@@ -23,8 +23,39 @@ Keep the car on external power and never pull the SD card or power while files a
    On the same M.I.B. screen set "RSDB region" = EU, press save, reboot.
    (North American units ship with "none", which switches the logo database off.)
 
-5. ENABLE THE HMI SERVICE (Potentially select regions only?) 
-   A custom hmi json file for my firmware had to be loaded, it was easy to create but I assume specific to each firmware verison. 
+5. START THE RADIO STATION DATABASE SERVICE - ONLY FOR MHI2Q_US_AUG22_P5087 (MU1316)
+   ONLY do this step on firmware MHI2Q_US_AUG22_P5087, MU1316. Do NOT use it on any other version.
+   Check your version in the M.I.B. backup from step 1: the file <MU>-allversions.txt must say
+       Train = MHI2Q_US_AUG22_P5087
+       MU = MU1316
+   North American firmware never starts the unit's radio station database service, so no logos
+   show even with the database installed. On MU1316 a replacement HMI startup file fixes this:
+   it is that firmware's own startup file with one entry added ("RadioStationDB"). Other firmware
+   versions have a different startup file, so this one must not be placed on them.
+   RISK: this puts a file on the unit's app partition that changes what the HMI starts at boot.
+   It has been used on one car. Keep the car on external power.
+
+   a. Download the hmi_startup_fix folder from this project:
+          https://github.com/cdnninja/MIB2-Canada-RadioStationDB/tree/main/hmi_startup_fix
+      Copy the contents of its "sdcard" folder to the ROOT of the M.I.B. SD card:
+          /mod/RSDB/hmi_startup.json
+          /esd/scripts/rsdb_hmi_install.sh
+          /esd/scripts/rsdb_hmi_remove.sh
+   b. Add the two buttons: open /esd/Launcher-sda0.esd on the SD card in a text editor, find
+          label   "Copy RSDB to unit"
+      and paste the contents of Launcher-sda0.esd.snippet on the next line.
+   c. GEM > m.i.b. > multimedia_system > radio > radiostation_db >
+          "Canada RSDB: place HMI startup file (MU1316 only)"
+      It should say "Unit: MU1316" and "HMI startup file placed".
+      If it says ABORTED, nothing was changed:
+        - "only for MU1316": your unit is a different version - stop here.
+        - "already has /eso/hmi/lsd/hmi_startup.json": the unit already has a startup file; a copy
+          was saved to /backup/hmi_startup.json.from_unit on the SD card. Do not continue.
+   d. Reboot the unit.
+
+   To remove it: GEM > m.i.b. > multimedia_system > radio > radiostation_db >
+       "Canada RSDB: remove HMI startup file", then reboot.
+   (A copy is saved to /backup/hmi_startup.json.removed. A firmware update also removes it.)
 
 6. TUNE A STATION
    Leave the station logo region on Automatic (or pick "Canada" if the list is shown).
@@ -32,6 +63,7 @@ Keep the car on external power and never pull the SD card or power while files a
 
 UNDO
    Put your backed-up VW_STL_DB.sqlite in /mod/RSDB/ and run "Copy RSDB to unit" again.
+   If you did step 5, also run "Canada RSDB: remove HMI startup file" and reboot.
 
 Report what works (or doesn't) at:
    https://github.com/cdnninja/MIB2-Canada-RadioStationDB/issues
